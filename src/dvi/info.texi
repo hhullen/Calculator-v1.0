@@ -1,0 +1,50 @@
+\input texinfo
+@setfilename dockumentation.info
+
+@settitle Calculator v1.0
+
+@copying
+Copyright © 2022 hhullen21 Publishing
+@end copying
+
+
+@titlepage
+@title Calculator v1.0
+@subtitle «C7_SmartCalc_v1.0-0»
+@author Hoshi Hullen
+
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@headings off
+
+@chapter Short app description
+
+The application developed in C language of C11 standard using GCC compiler. As a GUI creation technology chosen QT6 library with C++ underneath. The application source code located in the src folder and can be built with Makefile which contains standard set of targets for GNU-programs: all, install, uninstall, clean, dvi, dist, tests, gcov_report.
+
+@chapter Interface
+
+Main window interface, can be seen straight at application start, contains mode switcher at the upper-left corner. Below, there is a field of input/result expressions. And under this placed button pad. Button pad separated into two parts. At left side placed number pad with simple operators (brackets, plus, minus, multiplying, dividing, division remainder). At right side placed some other operators and function buttons (factorial, extent, square root, exponent, variable x, pi number, SIN, COS, TAN, ASIN, ACOS, ATAN, LN, LOG). 
+
+Just beneath this part located field to set up static x value to count expression with variable at one time by press equal button. And below, there are fields and buttons to set up graph parameters. To Draw graph of some expression it is needed to enter range of line calculation, enter expression with at least one variable x, press button "get" to get the expression for this (first or second) line or red button with cross to remove, and then press the "Open graph view". Once, the button pressed, the graph view window will be opened. 
+
+At the graph window there are 2 buttons at middle of window right side. Upper button with icon with six points in the picture calls calculator window back if it was closed or hide beyond graph window. Lower button with rounded arrow reset axis position and scale to initial condition or update their state to new scale that can be set up by fields at the lower left window corner. The same place can be found information of line color for one or the other expression. To switch to credit mode it is required to press mode switcher at upper left corner of calculator main window and choose Credit calculator.
+
+The Credit calculator mode has three input fields: Credit total, Credit term and Interest reate. Also, there are switchers, one below these input fields is to choose calculation type (Annuity or Differentiated) and another right side of Credit term field is to set unity of term (months or years). Below of aforementioned things placed green button that start calculation once the fields have correctly filled and it pressed. Calculation results (monthly payment, overpayment and total payment) are displayed lower and left of input fields.
+
+The Deposit calculator mode has more input fields: Deposit total, Deposit term, Interest rate, Tax rate, switchers to choose term units and periodicity of payment. There are also two areas to some additional deposit action Replenishments list and Partial withdrawals list. For Replenishment list can be added up to 15 times some deposit replenishments with specified deposit amount, date of replenishment and its periodicity. For Partial withdrawals list can be added up to 15 times some seizures with specified seizure amount and its date. As result there are accured interest, tax amount and deposit amount by the end. Counting result to end date of term started from current date.
+
+@chapter Possibilities
+
+Expression input system has data validation so, it will try not to let user to enter incorrect expression to calculation. Any times, it is possible not to enter some operator or number (multiplying operator after variables, constants, brackets, zero before dot etc.) to continue enter correct expression, because calculator will put it by itself. No more need to clear whole expression to fix once it was entered not how user desired to. Maximum and minimum range to draw graph is constrained by range from -1000000 to 1000000. In graph window moving view field and zoom it is possible also.
+
+@chapter Instruction
+
+To install the application the "make install" command execution is required in "src" folder. The application to launch will be located in "build" folder of the project root.
+
+Uninstallation is done through execution "make uninstall" command. Thus, the executable file will be deleted from "build" folder.
+
+Execution "make dist" command will build application if it is not, and put it into "tar" archive. The archive will be located in "build" folder of the project root.
+
+@bye
