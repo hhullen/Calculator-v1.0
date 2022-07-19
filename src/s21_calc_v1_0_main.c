@@ -69,7 +69,7 @@ void *thread_function(void *thread_data) {
 
 void calculate_expression_result(char *initial_expression, double x, double *result) {
     struct stack *support_stack = NULL, *polish_notation = NULL;
-    char operand = 0, priority = 0, *number_start = NULL;
+    char operand = 0, priority = 0;
     double value = 0.0;
     int iter = 0;
 
@@ -79,8 +79,8 @@ void calculate_expression_result(char *initial_expression, double x, double *res
         } else if (initial_expression[iter] == EXP) {
             push_token_Backward(&polish_notation, E, PRIOR_0, NUM);
         } else if (initial_expression[iter] >= '0' && initial_expression[iter] <= '9') {  // numbers
-            number_start = &initial_expression[iter];
-            push_token_Backward(&polish_notation, make_number(number_start, &iter), PRIOR_0, NUM);
+            push_token_Backward(&polish_notation, make_number(&initial_expression[iter], &iter),
+                                                                                    PRIOR_0, NUM);
         } else if (initial_expression[iter] == VARX) {  // "x"
             push_token_Backward(&polish_notation, x, PRIOR_0, VARX);
         } else if (initial_expression[iter] == MINUS || initial_expression[iter] == PLUS) {  // "+" or "-"
